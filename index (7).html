@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Bancada — funil de vídeos</title>
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bancada">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1C1D21">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<style>
+  /* ===================================================================
+     BANCADA — paleta de sala de edição.
+     Cinza neutro (não preto), etiquetas de cor por etapa do funil,
+     como marcação de clipe na timeline.
+     =================================================================== */
+  :root{
+    color-scheme: dark;
+    --bg:#1C1D21;
+    --sup:#25262B;
+    --sup2:#2C2E34;
+    --linha:#34363E;
+    --tinta:#E9E9EC;
+    --meia:#A2A5AE;
+    --fraca:#71747D;
+    --acento:#4C7DF0;
+    --acento-sut:rgba(76,125,240,.16);
+
+    /* etiquetas de etapa */
+    --topo:#8B8FD9;
+    --meio:#E0A24B;
+    --fundo:#4FA07A;
+    --criativo:#D97A93;
+
+    --alerta:#E4675F;
+    --raio:9px;
+    --toque:46px;
+    --dur:.16s;
+  }
+  html[data-tema="claro"]{
+    color-scheme: light;
+    --bg:#F1F1EF;
+    --sup:#FFFFFF;
+    --sup2:#F7F7F5;
+    --linha:#DFDFDA;
+    --tinta:#1A1B1E;
+    --meia:#5F626A;
+    --fraca:#8C8F97;
+    --acento-sut:rgba(76,125,240,.12);
+    --alerta:#C4443C;
+    --topo:#5F63B8;
+    --meio:#B87A22;
+    --fundo:#2F7E58;
+    --criativo:#B54F6C;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{background:var(--bg);-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);color:var(--tinta);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+    font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;
+    min-height:100dvh;overscroll-behavior-y:none;
+  }
+  button,input,select,textarea{font:inherit;color:inherit}
+  button{background:none;border:none;cursor:pointer}
+  ::selection{background:var(--acento);color:#fff}
+  :focus-visible{outline:2px solid var(--acento);outline-offset:2px;border-radius:4px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+  /* ---------------- barra superior ---------------- */
+  .topo{
+    position:sticky;top:0;z-index:30;background:var(--bg);
+    border-bottom:1px solid var(--linha);
+    padding-top:env(safe-area-inset-top);
+  }
+  .topo-linha{
+    display:flex;align-items:center;gap:10px;
+    padding:12px max(14px,env(safe-area-inset-left)) 10px;
+    max-width:1400px;margin:0 auto;
+  }
+  .nome{
+    font-size:16px;font-weight:650;letter-spacing:-.015em;margin-right:auto;
+    display:flex;align-items:baseline;gap:9px;
+  }
+  .nome small{font-weight:450;font-size:13px;color:var(--fraca);letter-spacing:0}
+
+  .ic{
+    width:var(--toque);height:var(--toque);border-radius:8px;
+    display:grid;place-items:center;color:var(--meia);flex:none;
+  }
+  .ic:hover{background:var(--sup);color:var(--tinta)}
+  .ic svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+  /* busca + ordenação */
+  .barra2{
+    display:flex;gap:8px;align-items:center;
+    padding:0 max(14px,env(safe-area-inset-left)) 10px;
+    max-width:1400px;margin:0 auto;
+  }
+  .busca{
+    flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:8px;
+    background:var(--sup);border:1px solid var(--linha);border-radius:8px;
+    padding:0 12px;height:40px;
+  }
+  .busca svg{width:16px;height:16px;stroke:var(--fraca);fill:none;stroke-width:1.8}
+  .busca input{
+    flex:1;background:none;border:none;outline:none;font-size:16px;min-width:0;
+  }
+  .busca input::placeholder{color:var(--fraca)}
+  .busca button{color:var(--fraca);font-size:18px;line-height:1;padding:4px}
+  select.ordenar{
+    flex:0 0 auto;width:132px;
+    height:40px;background:var(--sup);border:1px solid var(--linha);
+    border-radius:8px;padding:0 28px 0 11px;font-size:14px;color:var(--meia);
+    text-overflow:ellipsis;
+    appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23A2A5AE' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 11px center;background-size:9px;
+  }
+
+  /* chips de etapa */
+  .chips{
+    display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;
+    padding:0 max(14px,env(safe-area-inset-left)) 11px;
+    max-width:1400px;margin:0 auto;
+  }
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:none;display:inline-flex;align-items:center;gap:7px;
+    height:34px;padding:0 13px;border-radius:17px;
+    border:1px solid var(--linha);background:var(--sup);
+    font-size:13.5px;color:var(--meia);white-space:nowrap;
+    transition:border-color var(--dur), color var(--dur);
+  }
+  .chip i{width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+  .chip[aria-pressed="true"]{color:var(--tinta);border-color:currentColor}
+  .chip[data-e="Topo"]{--c:var(--topo)} .chip[data-e="Meio"]{--c:var(--meio)}
+  .chip[data-e="Fundo"]{--c:var(--fundo)} .chip[data-e="Criativo"]{--c:var(--criativo)}
+  .chip[data-e] i{background:var(--c)}
+  .chip[data-e][aria-pressed="true"]{border-color:var(--c)}
+
+  /* ---------------- seletor de coluna (celular) ---------------- */
+  .abas{
+    display:flex;gap:4px;padding:0 max(14px,env(safe-area-inset-left)) 12px;
+    max-width:1400px;margin:0 auto;overflow-x:auto;scrollbar-width:none;
+  }
+  .abas::-webkit-scrollbar{display:none}
+  .aba{
+    flex:1;min-width:88px;height:42px;border-radius:8px;
+    background:var(--sup);border:1px solid var(--linha);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:1px;font-size:12.5px;color:var(--meia);line-height:1.15;
+  }
+  .aba b{font-size:15px;font-weight:650;color:var(--tinta);font-variant-numeric:tabular-nums}
+  .aba[aria-selected="true"]{background:var(--acento-sut);border-color:var(--acento);color:var(--tinta)}
+
+  /* ---------------- quadro ---------------- */
+  main{
+    max-width:1400px;margin:0 auto;
+    padding:4px max(14px,env(safe-area-inset-left)) calc(96px + env(safe-area-inset-bottom));
+  }
+  .colunas{display:grid;gap:18px}
+  .coluna{min-width:0}
+  .cab-col{
+    display:none;align-items:center;gap:9px;
+    padding:0 2px 11px;border-bottom:1px solid var(--linha);margin-bottom:13px;
+  }
+  .cab-col h2{font-size:13.5px;font-weight:600;letter-spacing:.005em}
+  .cab-col .cont{
+    margin-left:auto;font-size:12.5px;color:var(--fraca);
+    font-variant-numeric:tabular-nums;
+  }
+  .cab-col .ord{
+    width:19px;height:19px;border-radius:5px;background:var(--sup2);
+    display:grid;place-items:center;font-size:11px;color:var(--fraca);
+    font-variant-numeric:tabular-nums;
+  }
+
+  .lista{display:flex;flex-direction:column;gap:9px}
+
+  /* ---------------- card ---------------- */
+  .card{
+    position:relative;background:var(--sup);border:1px solid var(--linha);
+    border-radius:var(--raio);padding:13px 13px 12px 17px;
+    display:block;width:100%;text-align:left;
+    transition:border-color var(--dur), background var(--dur);
+  }
+  .card:hover{border-color:var(--fraca)}
+  .card::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    border-radius:var(--raio) 0 0 var(--raio);background:var(--et);
+  }
+  .card[data-etapa="Topo"]{--et:var(--topo)}
+  .card[data-etapa="Meio"]{--et:var(--meio)}
+  .card[data-etapa="Fundo"]{--et:var(--fundo)}
+  .card[data-etapa="Criativo"]{--et:var(--criativo)}
+
+  .card-topo{display:flex;align-items:flex-start;gap:10px}
+  .card h3{
+    font-size:14.5px;font-weight:550;line-height:1.35;flex:1;
+    letter-spacing:-.005em;word-break:break-word;
+  }
+  .avancar{
+    width:34px;height:34px;border-radius:8px;flex:none;margin:-4px -4px 0 0;
+    display:grid;place-items:center;color:var(--fraca);
+    border:1px solid transparent;
+  }
+  .avancar:hover{background:var(--acento-sut);color:var(--acento);border-color:var(--acento)}
+  .avancar svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  .card-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 9px;margin-top:10px}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;color:var(--meia);
+  }
+  .tag .pt{width:7px;height:7px;border-radius:50%;background:currentColor}
+  .tag.etapa{color:var(--et)}
+  .tag.pri-Alta{color:var(--alerta)}
+  .tag.pri-Média{color:var(--meio)}
+  .tag.pri-Baixa{color:var(--fraca)}
+  .tag.data{font-variant-numeric:tabular-nums}
+  .tag.atrasado{
+    background:rgba(228,103,95,.14);color:var(--alerta);
+    padding:2px 8px;border-radius:5px;font-weight:550;
+  }
+  html[data-tema="claro"] .tag.atrasado{background:rgba(196,68,60,.12)}
+  .tag.link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8}
+  .card .trecho{
+    margin-top:9px;font-size:12.5px;color:var(--fraca);line-height:1.5;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+
+  /* vazio */
+  .vazio{
+    border:1px dashed var(--linha);border-radius:var(--raio);
+    padding:26px 18px;text-align:center;color:var(--fraca);font-size:13.5px;
+  }
+  .vazio button{color:var(--acento);font-weight:550;text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------------- botão novo ---------------- */
+  .novo{
+    position:fixed;right:max(16px,env(safe-area-inset-right));
+    bottom:calc(18px + env(safe-area-inset-bottom));z-index:35;
+    height:52px;padding:0 20px 0 17px;border-radius:26px;
+    background:var(--acento);color:#fff;font-size:15px;font-weight:600;
+    display:flex;align-items:center;gap:8px;
+    box-shadow:0 6px 22px rgba(0,0,0,.3);
+  }
+  .novo svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round}
+  .novo:active{transform:scale(.97)}
+
+  /* ---------------- folha / modal ---------------- */
+  .fundo-modal{
+    position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.55);
+    display:none;align-items:flex-end;justify-content:center;
+    backdrop-filter:blur(2px);
+  }
+  .fundo-modal.on{display:flex}
+  .folha{
+    background:var(--bg);width:100%;max-width:620px;
+    border-radius:16px 16px 0 0;border:1px solid var(--linha);border-bottom:none;
+    max-height:92dvh;display:flex;flex-direction:column;
+    animation:sobe .22s cubic-bezier(.32,.72,0,1);
+  }
+  @keyframes sobe{from{transform:translateY(22px);opacity:.4}to{transform:none;opacity:1}}
+  .folha-topo{
+    display:flex;align-items:center;gap:10px;padding:14px 16px;
+    border-bottom:1px solid var(--linha);flex:none;
+  }
+  .folha-topo h2{font-size:16px;font-weight:600;flex:1}
+  .folha-corpo{overflow-y:auto;padding:16px;-webkit-overflow-scrolling:touch}
+  .folha-pe{
+    display:flex;gap:9px;padding:13px 16px calc(13px + env(safe-area-inset-bottom));
+    border-top:1px solid var(--linha);flex:none;
+  }
+
+  .campo{margin-bottom:15px}
+  .campo:last-child{margin-bottom:0}
+  label{display:block;font-size:12.5px;color:var(--meia);margin-bottom:6px}
+  input[type=text],input[type=url],input[type=date],select,textarea{
+    width:100%;background:var(--sup);border:1px solid var(--linha);
+    border-radius:8px;padding:11px 12px;font-size:16px;outline:none;
+    min-height:var(--toque);
+  }
+  select{appearance:none;padding-right:34px;
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23A2A5AE' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 12px center;background-size:10px;}
+  input:focus,select:focus,textarea:focus{border-color:var(--acento)}
+  textarea{min-height:190px;resize:vertical;line-height:1.55;font-size:15px}
+  .dupla{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+
+  .seg{display:flex;gap:5px}
+  .seg button{
+    flex:1;height:42px;border-radius:8px;border:1px solid var(--linha);
+    background:var(--sup);font-size:13.5px;color:var(--meia);
+  }
+  .seg button[aria-pressed="true"]{border-color:var(--sel,var(--acento));color:var(--tinta);background:var(--sup2)}
+  .seg button[data-v="Topo"]{--sel:var(--topo)} .seg button[data-v="Meio"]{--sel:var(--meio)}
+  .seg button[data-v="Fundo"]{--sel:var(--fundo)} .seg button[data-v="Criativo"]{--sel:var(--criativo)}
+  .seg button[data-v="Alta"]{--sel:var(--alerta)} .seg button[data-v="Média"]{--sel:var(--meio)}
+
+  .rot-linha{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .modelo{
+    font-size:12.5px;color:var(--acento);font-weight:550;
+    padding:5px 9px;border-radius:6px;
+  }
+  .modelo:hover{background:var(--acento-sut)}
+
+  .bt{
+    height:46px;padding:0 18px;border-radius:9px;font-size:15px;font-weight:600;
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  }
+  .bt.prim{background:var(--acento);color:#fff;flex:1}
+  .bt.sec{background:var(--sup);border:1px solid var(--linha);color:var(--tinta)}
+  .bt.perigo{background:none;color:var(--alerta);border:1px solid var(--linha)}
+  .bt:active{transform:scale(.98)}
+
+  /* ajustes */
+  .grupo{margin-bottom:22px}
+  .grupo h3{font-size:12.5px;color:var(--meia);font-weight:550;margin-bottom:9px}
+  .cores{display:flex;gap:9px;flex-wrap:wrap}
+  .cor{
+    width:38px;height:38px;border-radius:50%;border:2px solid transparent;
+    display:grid;place-items:center;
+  }
+  .cor span{width:24px;height:24px;border-radius:50%;background:var(--c)}
+  .cor[aria-pressed="true"]{border-color:var(--tinta)}
+  .linha-info{
+    font-size:13px;color:var(--meia);line-height:1.6;
+    background:var(--sup);border:1px solid var(--linha);border-radius:9px;padding:13px 14px;
+  }
+  .linha-info b{color:var(--tinta);font-weight:600}
+  .linha-info ol{margin:8px 0 0 18px}
+  .linha-info li{margin-bottom:4px}
+
+  /* toast */
+  .toast{
+    position:fixed;left:50%;transform:translateX(-50%) translateY(120%);
+    bottom:calc(20px + env(safe-area-inset-bottom));z-index:80;
+    background:var(--sup2);border:1px solid var(--linha);border-radius:10px;
+    padding:11px 13px;display:flex;align-items:center;gap:14px;
+    box-shadow:0 8px 28px rgba(0,0,0,.35);font-size:14px;
+    max-width:calc(100vw - 28px);transition:transform .22s cubic-bezier(.32,.72,0,1);
+  }
+  .toast.on{transform:translateX(-50%) translateY(0)}
+  .toast button{color:var(--acento);font-weight:600;font-size:14px;white-space:nowrap}
+
+  .oculto{display:none!important}
+
+  /* =================== TELA GRANDE =================== */
+  @media(min-width:900px){
+    .abas{display:none}
+    select.ordenar{width:168px}
+    .colunas{grid-template-columns:repeat(4,1fr);gap:16px;align-items:start}
+    .cab-col{display:flex}
+    .coluna[hidden]{display:block!important}
+    main{padding-top:10px}
+    .fundo-modal{align-items:center}
+    .folha{border-radius:14px;border-bottom:1px solid var(--linha);max-height:88dvh}
+    .folha-pe{padding-bottom:13px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-linha">
+    <div class="nome">Bancada <small id="resumo"></small></div>
+    <button class="ic" id="btAjustes" aria-label="Ajustes">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </div>
+
+  <div class="barra2">
+    <div class="busca">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="busca" type="text" placeholder="Buscar tema ou roteiro" autocomplete="off" enterkeyhint="search">
+      <button id="limparBusca" class="oculto" aria-label="Limpar busca">×</button>
+    </div>
+    <select class="ordenar" id="ordenar" aria-label="Ordenar">
+      <option value="data">Data prevista</option>
+      <option value="prioridade">Prioridade</option>
+      <option value="alfabetica">Tema A–Z</option>
+      <option value="recente">Mais recentes</option>
+    </select>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <div class="abas" id="abas" role="tablist"></div>
+</header>
+
+<main>
+  <div class="colunas" id="quadro"></div>
+</main>
+
+<button class="novo" id="btNovo">
+  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+  Novo vídeo
+</button>
+
+<!-- ================= FICHA DO VÍDEO ================= -->
+<div class="fundo-modal" id="modalFicha">
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="tituloFicha">
+    <div class="folha-topo">
+      <h2 id="tituloFicha">Novo vídeo</h2>
+      <button class="ic" id="fecharFicha" aria-label="Fechar">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="folha-corpo">
+      <div class="campo">
+        <label for="fTema">Tema ou gancho</label>
+        <input id="fTema" type="text" placeholder="O erro que sai caro" enterkeyhint="next">
+      </div>
+
+      <div class="campo">
+        <label>Etapa do funil</label>
+        <div class="seg" id="segEtapa"></div>
+      </div>
+
+      <div class="campo">
+        <label>Prioridade</label>
+        <div class="seg" id="segPri"></div>
+      </div>
+
+      <div class="dupla">
+        <div class="campo">
+          <label for="fData">Data prevista</label>
+          <input id="fData" type="date">
+        </div>
+        <div class="campo">
+          <label for="fStatus">Status</label>
+          <select id="fStatus"></select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="fLink">Link de origem ou referência</label>
+        <input id="fLink" type="url" placeholder="https://" inputmode="url" autocapitalize="none" spellcheck="false">
+      </div>
+
+      <div class="campo">
+        <div class="rot-linha">
+          <label for="fRoteiro" style="margin:0">Roteiro</label>
+          <button class="modelo" id="btModelo">Usar modelo da etapa</button>
+        </div>
+        <textarea id="fRoteiro" placeholder="Gancho, desenvolvimento, chamada."></textarea>
+      </div>
+    </div>
+
+    <div class="folha-pe">
+      <button class="bt perigo oculto" id="btApagar">Apagar</button>
+      <button class="bt sec oculto" id="btDuplicar">Duplicar</button>
+      <button class="bt prim" id="btSalvar">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= AJUSTES ================= -->
+<div class="fundo-modal" id="modalAjustes">
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="tituloAjustes">
+    <div class="folha-topo">
+      <h2 id="tituloAjustes">Ajustes</h2>
+      <button class="ic" id="fecharAjustes" aria-label="Fechar">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="folha-corpo">
+      <div class="grupo">
+        <h3>Aparência</h3>
+        <div class="seg" id="segTema" style="margin-bottom:13px"></div>
+        <div class="cores" id="cores"></div>
+      </div>
+
+      <div class="grupo" id="grupoNuvem">
+        <h3>Nuvem</h3>
+        <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap">
+          <button class="bt sec" id="btSincronizar">Sincronizar agora</button>
+          <span id="statusSinc" style="font-size:13px;color:var(--fraca)"></span>
+        </div>
+        <p style="font-size:12.5px;color:var(--fraca);margin-top:9px" id="dicaNuvem"></p>
+        <div style="display:flex;gap:9px;margin-top:10px;flex-wrap:wrap">
+          <button class="bt sec" id="btChave">Chave deste aparelho</button>
+          <button class="bt sec oculto" id="btDesconectar">Desconectar</button>
+        </div>
+      </div>
+
+      <div class="grupo">
+        <h3>Backup</h3>
+        <div style="display:flex;gap:9px;flex-wrap:wrap">
+          <button class="bt sec" id="btExportar">Baixar backup</button>
+          <button class="bt sec" id="btCopiar">Copiar JSON</button>
+          <button class="bt sec" id="btSomar">Somar ideias</button>
+          <button class="bt sec" id="btImportar">Substituir tudo</button>
+          <input type="file" id="arquivo" accept="application/json,.json" class="oculto">
+        </div>
+        <p style="font-size:12.5px;color:var(--fraca);margin-top:9px">
+          <b style="color:var(--meia)">Somar ideias</b> acrescenta sem apagar nada —
+          é o que usar toda semana.
+          <b style="color:var(--meia)">Substituir tudo</b> troca o quadro inteiro por um backup.<br><br>
+          Os vídeos ficam salvos neste aparelho, neste navegador. Baixe um backup
+          antes de trocar de celular ou limpar os dados do Safari.
+        </p>
+      </div>
+
+      <div class="grupo">
+        <h3>Instalar no iPhone</h3>
+        <div class="linha-info">
+          No Safari, com esta página aberta:
+          <ol>
+            <li>Toque no ícone de compartilhar, o quadrado com a seta para cima.</li>
+            <li>Role e escolha <b>Adicionar à Tela de Início</b>.</li>
+            <li>Confirme em <b>Adicionar</b>.</li>
+          </ol>
+          Depois disso abre como app, em tela cheia, com ícone próprio.
+        </div>
+      </div>
+
+      <div class="grupo" style="margin-bottom:0">
+        <h3>Atalhos no computador</h3>
+        <div class="linha-info">
+          <b>N</b> cria um vídeo · <b>/</b> vai para a busca ·
+          <b>Esc</b> fecha · <b>⌘/Ctrl + Enter</b> salva a ficha aberta
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CHAVE DA NUVEM ================= -->
+<div class="fundo-modal" id="modalChave">
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="tituloChave">
+    <div class="folha-topo">
+      <h2 id="tituloChave">Conectar à nuvem</h2>
+      <button class="ic" id="fecharChave" aria-label="Fechar">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="folha-corpo">
+      <p style="font-size:14px;color:var(--meia);margin-bottom:16px" id="textoChave">
+        Digite a chave que você definiu no script da planilha. Ela fica guardada
+        só neste aparelho e não aparece em lugar nenhum da página.
+      </p>
+      <div class="campo">
+        <label for="campoChave">Chave</label>
+        <input id="campoChave" type="password" autocomplete="off"
+               autocapitalize="none" spellcheck="false" enterkeyhint="go">
+      </div>
+      <p style="font-size:12.5px;color:var(--fraca)">
+        Sem a chave o app funciona normalmente, só não sincroniza.
+      </p>
+    </div>
+    <div class="folha-pe">
+      <button class="bt sec" id="agoraNao">Agora não</button>
+      <button class="bt prim" id="salvarChave">Conectar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SOMAR IDEIAS ================= -->
+<div class="fundo-modal" id="modalSomar">
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="tituloSomar">
+    <div class="folha-topo">
+      <h2 id="tituloSomar">Somar ideias</h2>
+      <button class="ic" id="fecharSomar" aria-label="Fechar">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="folha-corpo">
+      <p style="font-size:14px;color:var(--meia);margin-bottom:14px">
+        Cole aqui o bloco de ideias novas. Elas entram junto com o que já existe —
+        nada é apagado. Vídeo repetido só é atualizado se a versão colada for mais recente.
+      </p>
+      <div class="campo">
+        <label for="campoSomar">Bloco de ideias</label>
+        <textarea id="campoSomar" placeholder='[ { "tema": "...", "etapa": "Topo" } ]'
+                  autocapitalize="none" spellcheck="false" style="min-height:220px;font-size:13px"></textarea>
+      </div>
+      <p id="previaSomar" style="font-size:13px;color:var(--fraca)"></p>
+    </div>
+    <div class="folha-pe">
+      <button class="bt sec" id="colarSomar">Colar</button>
+      <button class="bt prim" id="aplicarSomar">Somar ao quadro</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+
+<span id="toastTxt"></span><button id="toastAcao"></button></div>
+
+<script>
+/* =====================================================================
+   NUVEM — preencha depois de implantar o bancada-sync.gs
+   Vazio = o app funciona só neste aparelho.
+   ===================================================================== */
+const NUVEM = {
+  URL: "https://script.google.com/macros/s/AKfycbxmCUlcmzxpDtZDZHj128h-7-0Z3NGr0yUMLUYAZhAHtskeL1GlrVZx97iZoT_ikOHQ/exec",
+                 // a URL /exec do Apps Script
+  AUTO: true     // sincroniza ao abrir e alguns segundos após mexer
+};
+// Chave embutida: o app já abre conectado, sem perguntar nada.
+// Se um dia quiser tirar daqui, deixe CHAVE_EMBUTIDA vazia — aí ele volta
+// a pedir uma vez em cada aparelho.
+const CHAVE_EMBUTIDA = "bancada-vext-4417";
+const CHAVE_LOCAL = "bancada.chave.v1";
+const chaveAtual = () => {
+  try{ return localStorage.getItem(CHAVE_LOCAL) || CHAVE_EMBUTIDA; }
+  catch(e){ return CHAVE_EMBUTIDA; }
+};
+const guardarChave = k => { try{ localStorage.setItem(CHAVE_LOCAL, k); }catch(e){} };
+const esquecerChave = () => { try{ localStorage.removeItem(CHAVE_LOCAL); }catch(e){} };
+
+/* =====================================================================
+   DADOS
+   ===================================================================== */
+const STATUS = ["A gravar","Gravado","Editado","Publicado"];
+const ETAPAS = ["Topo","Meio","Fundo","Criativo"];
+const PRIS   = ["Baixa","Média","Alta"];
+const PESO_PRI = { Alta:0, Média:1, Baixa:2 };
+
+const ACENTOS = [
+  { id:"azul",    cor:"#4C7DF0" },
+  { id:"verde",   cor:"#3DA37A" },
+  { id:"roxo",    cor:"#8A6AD8" },
+  { id:"laranja", cor:"#E08A3C" },
+  { id:"rosa",    cor:"#D9617F" },
+  { id:"grafite", cor:"#7C818C" }
+];
+
+const MODELOS = {
+  Topo:
+`GANCHO (0–3s)
+Diga a dor em uma frase. Nada de "oi pessoal".
+
+CONTEXTO (3–15s)
+Por que isso acontece com quase todo mundo.
+
+VIRADA (15–35s)
+O que quase ninguém percebe.
+
+FECHO
+Deixa a pergunta no ar. Sem oferta aqui.`,
+
+  Meio:
+`GANCHO (0–3s)
+Retome o problema já conhecido por quem te acompanha.
+
+DEMONSTRAÇÃO
+Mostre o processo, a tela, o bastidor. Prova, não promessa.
+
+ERRO COMUM
+O que as pessoas fazem errado nessa etapa.
+
+FECHO
+Convide para o próximo passo, ainda sem vender.`,
+
+  Fundo:
+`GANCHO (0–3s)
+Fale direto com quem já está considerando contratar.
+
+OBJEÇÃO
+Nomeie a dúvida que trava a decisão e responda.
+
+PROVA
+Número, caso ou demonstração concreta.
+
+CHAMADA
+Diga exatamente o que fazer agora e o que acontece depois.`,
+
+  Criativo:
+`GANCHO (0–2s)
+Primeira frase precisa parar o dedo. Teste 3 versões.
+
+PROMESSA (2–8s)
+O que a pessoa ganha ao continuar assistindo.
+
+ENTREGA (8–25s)
+Uma ideia só. Corte tudo que não serve a ela.
+
+CHAMADA
+Uma ação, sem alternativa.`
+};
+
+/* =====================================================================
+   SEMENTES — banco inicial de ideias.
+   Só entram quando o aparelho ainda não tem nada salvo.
+   ===================================================================== */
+const SEMENTES = [{"id": "ideia-001", "criado": 1790362304282, "mexido": 1790362304282, "tema": "Seu anúncio não precisa de alcance. Precisa de cliente.", "etapa": "Topo", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nSe o relatório sobe todo mês e o caixa não, o problema não é a verba.\n\nÂNGULO\nSepare as duas coisas: métrica de vaidade e métrica de caixa. Alcance, impressão e engajamento sobem sozinhos. Cliente não.\n\nO QUE MOSTRAR\nPrint de um relatório com alcance alto ao lado do número de conversas iniciadas.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-002", "criado": 1790362303282, "mexido": 1790362303282, "tema": "Quanto custa um cliente pra você?", "etapa": "Topo", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nSe você não sabe responder isso, não deveria estar anunciando ainda.\n\nÂNGULO\nSem ticket médio e taxa de fechamento, não existe meta de custo por lead. A campanha vira aposta.\n\nO QUE MOSTRAR\nFaça a conta ao vivo, na tela, com números de um negócio qualquer.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-003", "criado": 1790362302282, "mexido": 1790362302282, "tema": "Curtida não paga funcionário", "etapa": "Topo", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nJá vi perfil com 50 mil seguidores faturando menos que perfil com 900.\n\nÂNGULO\nAudiência sem caminho de compra é plateia. O que converte é oferta clara e caminho medido.\n\nO QUE MOSTRAR\nDois perfis lado a lado, sem identificar ninguém.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-004", "criado": 1790362301282, "mexido": 1790362301282, "tema": "Por que sua campanha piora toda vez que você mexe nela", "etapa": "Topo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nToda vez que você edita, ela volta pra estaca zero.\n\nÂNGULO\nExplique aprendizado da plataforma em linguagem de dono de negócio: o algoritmo precisa de repetição pra aprender.\n\nO QUE MOSTRAR\nLinha do tempo mostrando cada edição reiniciando o aprendizado.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-005", "criado": 1790362300282, "mexido": 1790362300282, "tema": "Impulsionar não é gestão de tráfego", "etapa": "Topo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nO botão azul do Instagram não é campanha. É gorjeta pra Meta.\n\nÂNGULO\nDiferença entre impulsionar post e estruturar campanha com objetivo, público e mensuração.\n\nO QUE MOSTRAR\nTela do botão turbinar versus tela do gerenciador.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-006", "criado": 1790362299282, "mexido": 1790362299282, "tema": "Lead barato que não fecha é o mais caro que existe", "etapa": "Topo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nCusto por lead de R$ 3 parece ótimo. Até você ver quantos viraram cliente.\n\nÂNGULO\nIntroduza custo por cliente. Um lead a R$ 30 que fecha 1 em 5 é mais barato que um a R$ 3 que não fecha nenhum.\n\nO QUE MOSTRAR\nDuas colunas de conta, na tela ou no papel.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-007", "criado": 1790362298282, "mexido": 1790362298282, "tema": "O erro de segmentar demais", "etapa": "Topo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nQuanto mais filtro você coloca, mais caro fica cada pessoa.\n\nÂNGULO\nPúblico estreito encarece leilão e trava entrega. Hoje o criativo segmenta melhor que a caixinha de interesses.\n\nO QUE MOSTRAR\nMostrar duas campanhas iguais com segmentações diferentes.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-008", "criado": 1790362297282, "mexido": 1790362297282, "tema": "Instagram ou Google: quando cada um serve", "etapa": "Topo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nUm cria demanda. O outro colhe demanda que já existe.\n\nÂNGULO\nMeta serve pra quem ainda não procura. Google serve pra quem já digitou o problema. A escolha depende do seu produto.\n\nO QUE MOSTRAR\nExemplo real de busca no Google e de um anúncio no feed.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-009", "criado": 1790362296282, "mexido": 1790362296282, "tema": "Por que a agência não te mostra o custo por venda", "etapa": "Topo", "prioridade": "Baixa", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nPorque ela não sabe. E não sabe porque nunca instalou rastreamento.\n\nÂNGULO\nSem pixel e conversões, o relatório para no clique. Do clique até a venda é ponto cego.\n\nO QUE MOSTRAR\nDiagrama do caminho: anúncio, clique, lead, conversa, venda. Marcar onde a medição costuma parar.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-010", "criado": 1790362295282, "mexido": 1790362295282, "tema": "O que ninguém te conta sobre público frio", "etapa": "Topo", "prioridade": "Baixa", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nPúblico frio não compra no primeiro vídeo. Nem no segundo.\n\nÂNGULO\nExplique frequência e repetição sem jargão. Compra é consequência de reconhecimento.\n\nO QUE MOSTRAR\nNúmeros de alcance e frequência de uma campanha sua.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-011", "criado": 1790362294282, "mexido": 1790362294282, "tema": "Verba baixa demais não é economia", "etapa": "Topo", "prioridade": "Baixa", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nAbaixo de um certo valor, a campanha não junta dado suficiente pra aprender.\n\nÂNGULO\nExplique o piso mínimo e por que ele existe. Não é regra de agência, é como a plataforma funciona.\n\nO QUE MOSTRAR\nComparar duas campanhas: uma com verba de teste e outra abaixo do piso.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-012", "criado": 1790362293282, "mexido": 1790362293282, "tema": "Três perguntas antes de anunciar", "etapa": "Topo", "prioridade": "Baixa", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nSe você não responde essas três, guarde o dinheiro.\n\nÂNGULO\nQuanto entra por mês, quanto vale um cliente, quem atende o contato que chegar.\n\nO QUE MOSTRAR\nSó você falando. Vídeo curto, direto, sem edição.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-013", "criado": 1790362292282, "mexido": 1790362292282, "tema": "Cobaia — episódio 1: eu apliquei em mim", "etapa": "Meio", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nComecei a construir pra mim o mesmo funil que vendo pros meus clientes.\n\nÂNGULO\nAbra a série. Diga o que vai mostrar nos próximos episódios e por que está fazendo em público.\n\nO QUE MOSTRAR\nA tela do site em branco, o primeiro arquivo, o caderno com o plano.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-014", "criado": 1790362291282, "mexido": 1790362291282, "tema": "Cobaia — episódio 2: o formulário que recusa cliente", "etapa": "Meio", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nEu programei um formulário que diz não pra quem não se encaixa.\n\nÂNGULO\nMostre a lógica: quatro critérios obrigatórios, pontuação, e por que recusar aumenta faturamento em vez de reduzir.\n\nO QUE MOSTRAR\nA tela do formulário rodando, a planilha com um lead reprovado.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-015", "criado": 1790362290282, "mexido": 1790362290282, "tema": "Cobaia — episódio 3: rastreamento de ponta a ponta", "etapa": "Meio", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nDo clique no anúncio até a reunião marcada, tudo medido.\n\nÂNGULO\nExplique pixel e API de conversões em linguagem simples, e por que os dois juntos.\n\nO QUE MOSTRAR\nGerenciador de eventos mostrando o evento chegando duas vezes e sendo deduplicado.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-016", "criado": 1790362289282, "mexido": 1790362289282, "tema": "Cobaia — episódio 4: a agenda que se bloqueia sozinha", "etapa": "Meio", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nMarquei dentista no celular e o horário sumiu do site sozinho.\n\nÂNGULO\nMostre a integração com o Google Agenda. É o tipo de detalhe que faz o cliente entender o que é sistema.\n\nO QUE MOSTRAR\nCelular com o evento pessoal, e o site perdendo aquele horário.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-017", "criado": 1790362288282, "mexido": 1790362288282, "tema": "Cobaia — episódio 5: os primeiros números", "etapa": "Meio", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nTrinta dias depois. Aqui está tudo, inclusive o que deu errado.\n\nÂNGULO\nAbra os números reais do seu próprio funil. Erro incluído. É o episódio que sustenta a série inteira.\n\nO QUE MOSTRAR\nPainel da campanha e a planilha de leads, sem esconder nada.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-018", "criado": 1790362287282, "mexido": 1790362287282, "tema": "Como eu leio um relatório em três minutos", "etapa": "Meio", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nNão olho quase nada do que aparece na tela inicial.\n\nÂNGULO\nMostre as três ou quatro colunas que importam e por quê. Ignore o resto na frente da câmera.\n\nO QUE MOSTRAR\nTela do gerenciador, dedo apontando o que interessa.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-019", "criado": 1790362286282, "mexido": 1790362286282, "tema": "Testei quatro criativos com verba baixa", "etapa": "Meio", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nMesma oferta, mesmo público, quatro vídeos diferentes.\n\nÂNGULO\nMostre o resultado de cada um e o que o vencedor tinha que os outros não tinham.\n\nO QUE MOSTRAR\nOs quatro criativos lado a lado com o custo de cada um.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-020", "criado": 1790362285282, "mexido": 1790362285282, "tema": "Por que eu não mexo na campanha nos primeiros sete dias", "etapa": "Meio", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nSei que dá ansiedade. Mexer é o que estraga.\n\nÂNGULO\nExplique a regra que você combina com o cliente e o que acontece quando ela é quebrada.\n\nO QUE MOSTRAR\nCalendário marcando o que se faz em cada dia.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-021", "criado": 1790362284282, "mexido": 1790362284282, "tema": "O que eu faço quando o custo por lead sobe", "etapa": "Meio", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nPrimeira coisa que eu não faço: aumentar a verba.\n\nÂNGULO\nOrdem de investigação: criativo cansado, frequência, oferta, concorrência do leilão.\n\nO QUE MOSTRAR\nGráfico de um CPL subindo e a decisão tomada em cada ponto.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-022", "criado": 1790362283282, "mexido": 1790362283282, "tema": "Como escolher o objetivo da campanha", "etapa": "Meio", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nEscolher errado aqui estraga tudo depois, e quase ninguém explica isso.\n\nÂNGULO\nCompare objetivos e mostre o erro clássico de otimizar por um evento com volume baixo demais.\n\nO QUE MOSTRAR\nTela de criação de campanha com os objetivos abertos.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-023", "criado": 1790362282282, "mexido": 1790362282282, "tema": "Meu setup de gravação", "etapa": "Meio", "prioridade": "Baixa", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nTudo que eu uso pra gravar cabe em cima de uma mesa.\n\nÂNGULO\nTire o pretexto de quem não começa por falta de equipamento.\n\nO QUE MOSTRAR\nA mesa, o celular, a luz. Mostrar o preço se quiser.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-024", "criado": 1790362281282, "mexido": 1790362281282, "tema": "Um dia de trabalho de verdade", "etapa": "Meio", "prioridade": "Baixa", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nSpoiler: a menor parte do dia é dentro do gerenciador.\n\nÂNGULO\nBastidor honesto. Mostra que o trabalho é diagnóstico, conversa e leitura, não clique.\n\nO QUE MOSTRAR\nCortes do dia, do começo ao fim.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-025", "criado": 1790362280282, "mexido": 1790362280282, "tema": "Não é pra todo mundo", "etapa": "Fundo", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nPrefiro dizer antes de você perder tempo preenchendo formulário.\n\nÂNGULO\nLeia os quatro critérios em voz alta. Quem não se encaixa sai, e tudo bem.\n\nO QUE MOSTRAR\nVocê falando, direto. Sem trilha, sem corte bonito.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-026", "criado": 1790362279282, "mexido": 1790362279282, "tema": "Quanto você precisa investir em mídia", "etapa": "Fundo", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nExiste um piso, e não sou eu que invento.\n\nÂNGULO\nExplique o valor mínimo e o motivo técnico. Separe verba de mídia da remuneração da gestão.\n\nO QUE MOSTRAR\nConta simples na tela mostrando quantos dados a campanha junta em cada faixa.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-027", "criado": 1790362278282, "mexido": 1790362278282, "tema": "E se não der resultado?", "etapa": "Fundo", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nNão trabalho com resultado garantido. Ninguém sério trabalha.\n\nÂNGULO\nExplique o que você garante no lugar: medição honesta e o momento em que você mesmo levanta a mão.\n\nO QUE MOSTRAR\nSó você, olhando pra câmera. Esse vídeo é sobre confiança, não sobre técnica.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-028", "criado": 1790362277282, "mexido": 1790362277282, "tema": "Por que eu peço três meses", "etapa": "Fundo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nNão é fidelidade pra te prender.\n\nÂNGULO\nPrimeiro mês é estrutura e aprendizado. Em menos que isso, qualquer conclusão é chute.\n\nO QUE MOSTRAR\nLinha do tempo dos três meses, o que acontece em cada um.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-029", "criado": 1790362276282, "mexido": 1790362276282, "tema": "O que fica com você se a gente parar", "etapa": "Fundo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nTudo. E isso é proposital.\n\nÂNGULO\nContas no nome do cliente, pixel na conta dele, histórico documentado. Explique por que você faz assim.\n\nO QUE MOSTRAR\nTela do gerenciador mostrando a propriedade da conta.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-030", "criado": 1790362275282, "mexido": 1790362275282, "tema": "Como é a primeira conversa", "etapa": "Fundo", "prioridade": "Baixa", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nTrinta minutos, e eu vou te fazer perguntas sobre dinheiro.\n\nÂNGULO\nReduza o medo da reunião. Diga exatamente o que vai acontecer e o que a pessoa precisa ter em mãos.\n\nO QUE MOSTRAR\nA tela da agenda, e você listando as perguntas.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-031", "criado": 1790362274282, "mexido": 1790362274282, "tema": "Três ganchos pro mesmo vídeo", "etapa": "Criativo", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nGrave a mesma ideia com três aberturas diferentes e suba as três.\n\nÂNGULO\nO corpo é igual, só os primeiros três segundos mudam. É o teste mais barato que existe.\n\nO QUE MOSTRAR\nGravar as três versões na mesma sessão, mesma roupa, mesma luz.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-032", "criado": 1790362273282, "mexido": 1790362273282, "tema": "O erro caro, versão anúncio", "etapa": "Criativo", "prioridade": "Alta", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nSessenta segundos, uma dor só, uma chamada só.\n\nÂNGULO\nAdapte o vídeo de topo para formato de anúncio: mais direto, chamada explícita no fim.\n\nO QUE MOSTRAR\nNada de bastidor. Câmera parada, você falando.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-033", "criado": 1790362272282, "mexido": 1790362272282, "tema": "Prova em quinze segundos", "etapa": "Criativo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nUm número na tela e a explicação em uma frase.\n\nÂNGULO\nCriativo curto feito só de prova. Serve pra público que já te viu antes.\n\nO QUE MOSTRAR\nO painel com o número, gravação de tela.\n\nFECHO\nUma chamada só. Sem alternativa."}, {"id": "ideia-034", "criado": 1790362271282, "mexido": 1790362271282, "tema": "Chamada direta pro diagnóstico", "etapa": "Criativo", "prioridade": "Média", "status": "A gravar", "data": "", "link": "", "roteiro": "GANCHO (0-3s)\nOito perguntas, dois minutos, e você sabe se faz sentido.\n\nÂNGULO\nAnúncio de fundo de funil. Explica o formulário e manda responder.\n\nO QUE MOSTRAR\nTela do formulário sendo preenchido no celular.\n\nFECHO\nUma chamada só. Sem alternativa."}];
+
+/* =====================================================================
+   ESTADO
+   ===================================================================== */
+const CHAVE = "bancada.funil.v1";
+let S = {
+  videos: [],
+  apagados: [],                // {id, quando} — some do servidor também
+  cfg: { tema:"auto", acento:"azul" },
+  filtro: { etapa:"todas", q:"", ordem:"data", coluna:"A gravar" }
+};
+let editando = null;      // id em edição, ou null para novo
+let apagado = null;       // {video, indice} para desfazer
+let tempoToast = null;
+
+const $  = id => document.getElementById(id);
+const hoje = () => { const d=new Date(); d.setHours(0,0,0,0); return d; };
+
+function carregar(){
+  try{
+    const bruto = localStorage.getItem(CHAVE);
+    if(!bruto){
+      // primeira vez neste aparelho: entra com o banco de ideias
+      const agora = Date.now();
+      S.videos = SEMENTES.map((v,i) => Object.assign({}, v, {
+        criado: agora - i*1000, mexido: agora - i*1000
+      }));
+      salvar();
+      return;
+    }
+    if(bruto){
+      const j = JSON.parse(bruto);
+      if(Array.isArray(j.videos)) S.videos = j.videos;
+      if(Array.isArray(j.apagados)) S.apagados = j.apagados;
+      if(j.cfg) S.cfg = Object.assign(S.cfg, j.cfg);
+    }
+  }catch(e){ console.warn("Não consegui ler os dados salvos:", e); }
+}
+function salvar(){
+  try{
+    localStorage.setItem(CHAVE, JSON.stringify({
+      videos:S.videos, apagados:S.apagados, cfg:S.cfg
+    }));
+  }catch(e){
+    avisar("Não consegui salvar neste navegador. Baixe um backup.", null);
+  }
+}
+
+/* =====================================================================
+   APARÊNCIA
+   ===================================================================== */
+function aplicarTema(){
+  const escuro = S.cfg.tema === "escuro" ||
+    (S.cfg.tema === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  document.documentElement.dataset.tema = escuro ? "escuro" : "claro";
+  const a = (ACENTOS.find(x=>x.id===S.cfg.acento) || ACENTOS[0]).cor;
+  document.documentElement.style.setProperty("--acento", a);
+  document.documentElement.style.setProperty("--acento-sut", corSutil(a, escuro));
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if(meta) meta.setAttribute("content", escuro ? "#1C1D21" : "#F1F1EF");
+}
+function corSutil(hex, escuro){
+  const n = parseInt(hex.slice(1),16);
+  const r=(n>>16)&255, g=(n>>8)&255, b=n&255;
+  return `rgba(${r},${g},${b},${escuro ? .16 : .12})`;
+}
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+  if(S.cfg.tema === "auto") aplicarTema();
+});
+
+/* =====================================================================
+   DATAS
+   ===================================================================== */
+function paraData(iso){
+  if(!iso) return null;
+  const [a,m,d] = iso.split("-").map(Number);
+  return new Date(a, m-1, d);
+}
+function diasDeAtraso(v){
+  if(!v.data || v.status === "Publicado") return 0;
+  const d = paraData(v.data); if(!d) return 0;
+  return Math.round((hoje() - d) / 86400000);
+}
+function dataCurta(iso){
+  const d = paraData(iso); if(!d) return "";
+  const meses = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+  const mesmoAno = d.getFullYear() === new Date().getFullYear();
+  return d.getDate() + " " + meses[d.getMonth()] + (mesmoAno ? "" : " " + d.getFullYear());
+}
+
+/* =====================================================================
+   FILTRO E ORDEM
+   ===================================================================== */
+function visiveis(){
+  const q = S.filtro.q.trim().toLowerCase();
+  let lista = S.videos.filter(v => {
+    if(S.filtro.etapa !== "todas" && v.etapa !== S.filtro.etapa) return false;
+    if(!q) return true;
+    return (v.tema||"").toLowerCase().includes(q)
+        || (v.roteiro||"").toLowerCase().includes(q);
+  });
+
+  const ordem = S.filtro.ordem;
+  lista.sort((a,b) => {
+    if(ordem === "alfabetica") return (a.tema||"").localeCompare(b.tema||"", "pt-BR");
+    if(ordem === "recente")    return (b.criado||0) - (a.criado||0);
+    if(ordem === "prioridade"){
+      const p = PESO_PRI[a.prioridade] - PESO_PRI[b.prioridade];
+      if(p) return p;
+    }
+    // por data: sem data vai para o fim
+    if(!a.data && !b.data) return (b.criado||0) - (a.criado||0);
+    if(!a.data) return 1;
+    if(!b.data) return -1;
+    return a.data.localeCompare(b.data);
+  });
+  return lista;
+}
+
+/* =====================================================================
+   DESENHO
+   ===================================================================== */
+const SVG_AVANCAR = '<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>';
+const SVG_LINK = '<svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>';
+
+function desenhar(){
+  const lista = visiveis();
+  const porStatus = {};
+  STATUS.forEach(s => porStatus[s] = lista.filter(v => v.status === s));
+
+  // abas do celular
+  $("abas").innerHTML = STATUS.map(s => `
+    <button class="aba" role="tab" data-s="${s}"
+            aria-selected="${S.filtro.coluna === s}">
+      <b>${porStatus[s].length}</b>${s}
+    </button>`).join("");
+
+  // quadro
+  $("quadro").innerHTML = STATUS.map((s,i) => {
+    const itens = porStatus[s];
+    const esconde = window.innerWidth < 900 && S.filtro.coluna !== s;
+    return `
+    <section class="coluna" ${esconde ? "hidden" : ""} data-col="${s}">
+      <div class="cab-col">
+        <span class="ord">${i+1}</span>
+        <h2>${s}</h2>
+        <span class="cont">${itens.length}</span>
+      </div>
+      <div class="lista">
+        ${itens.length ? itens.map(card).join("") : vazio(s)}
+      </div>
+    </section>`;
+  }).join("");
+
+  // resumo no topo
+  const atrasados = S.videos.filter(v => diasDeAtraso(v) > 0).length;
+  const total = S.videos.length;
+  $("resumo").textContent = total === 0 ? ""
+    : (total + (total === 1 ? " vídeo" : " vídeos")) +
+      (atrasados ? " · " + atrasados + " em atraso" : "");
+
+  $("limparBusca").classList.toggle("oculto", !S.filtro.q);
+}
+
+function card(v){
+  const atraso = diasDeAtraso(v);
+  const ultimo = v.status === "Publicado";
+  return `
+  <article class="card" data-etapa="${v.etapa}" data-id="${v.id}">
+    <div class="card-topo">
+      <h3>${escapar(v.tema) || "Sem tema"}</h3>
+      ${ultimo ? "" : `<button class="avancar" data-avancar="${v.id}"
+          aria-label="Mover para ${STATUS[STATUS.indexOf(v.status)+1]}"
+          title="Mover para ${STATUS[STATUS.indexOf(v.status)+1]}">${SVG_AVANCAR}</button>`}
+    </div>
+    <div class="card-meta">
+      <span class="tag etapa"><i class="pt"></i>${v.etapa}</span>
+      <span class="tag pri-${v.prioridade}"><i class="pt"></i>${v.prioridade}</span>
+      ${v.data ? (atraso > 0
+          ? `<span class="tag atrasado">${atraso === 1 ? "1 dia de atraso" : atraso + " dias de atraso"}</span>`
+          : `<span class="tag data">${dataCurta(v.data)}</span>`) : ""}
+      ${v.link ? `<span class="tag link">${SVG_LINK}referência</span>` : ""}
+    </div>
+    ${v.roteiro ? `<p class="trecho">${escapar(v.roteiro.replace(/\s+/g," ").slice(0,140))}</p>` : ""}
+  </article>`;
+}
+
+function vazio(s){
+  const txt = {
+    "A gravar":  "Nada na fila. Anote a próxima ideia antes de esquecer.",
+    "Gravado":   "Nenhum bruto esperando edição.",
+    "Editado":   "Nada pronto para publicar.",
+    "Publicado": "Ainda não há vídeo publicado por aqui."
+  }[s];
+  const acao = s === "A gravar"
+    ? ` <button data-novo="1">Criar o primeiro</button>` : "";
+  return `<div class="vazio">${txt}${acao}</div>`;
+}
+
+function escapar(t){
+  return String(t == null ? "" : t)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+/* =====================================================================
+   INTERAÇÃO NO QUADRO
+   ===================================================================== */
+$("quadro").addEventListener("click", e => {
+  const bt = e.target.closest("[data-avancar]");
+  if(bt){ avancar(bt.dataset.avancar); return; }
+  if(e.target.closest("[data-novo]")){ abrirFicha(null); return; }
+  const c = e.target.closest(".card");
+  if(c) abrirFicha(c.dataset.id);
+});
+
+$("abas").addEventListener("click", e => {
+  const a = e.target.closest(".aba");
+  if(!a) return;
+  S.filtro.coluna = a.dataset.s;
+  desenhar();
+});
+
+function avancar(id){
+  const v = S.videos.find(x => x.id === id);
+  if(!v) return;
+  const i = STATUS.indexOf(v.status);
+  if(i < 0 || i === STATUS.length-1) return;
+  v.status = STATUS[i+1];
+  v.mexido = Date.now();
+  salvar(); desenhar(); agendarSincronia();
+  avisar(`"${cortar(v.tema)}" agora está em ${v.status}.`, "Desfazer", () => {
+    v.status = STATUS[i]; v.mexido = Date.now();
+    salvar(); desenhar(); agendarSincronia();
+  });
+}
+const cortar = t => (t||"Sem tema").length > 28 ? (t||"").slice(0,28)+"…" : (t||"Sem tema");
+
+/* =====================================================================
+   FICHA
+   ===================================================================== */
+function segmentos(alvo, valores, atual, aoEscolher){
+  alvo.innerHTML = valores.map(v =>
+    `<button type="button" data-v="${v}" aria-pressed="${v===atual}">${v}</button>`).join("");
+  alvo.onclick = e => {
+    const b = e.target.closest("button"); if(!b) return;
+    [...alvo.children].forEach(x => x.setAttribute("aria-pressed", x === b));
+    aoEscolher(b.dataset.v);
+  };
+}
+
+let rascunho = {};
+
+function abrirFicha(id){
+  editando = id;
+  const v = id ? S.videos.find(x => x.id === id) : null;
+
+  rascunho = v ? Object.assign({}, v) : {
+    etapa:"Topo", prioridade:"Média",
+    status: (window.innerWidth < 900 ? S.filtro.coluna : "A gravar"),
+    data:"", link:"", roteiro:"", tema:""
+  };
+
+  $("tituloFicha").textContent = v ? "Editar vídeo" : "Novo vídeo";
+  $("fTema").value = rascunho.tema || "";
+  $("fData").value = rascunho.data || "";
+  $("fLink").value = rascunho.link || "";
+  $("fRoteiro").value = rascunho.roteiro || "";
+
+  $("fStatus").innerHTML = STATUS.map(s =>
+    `<option value="${s}" ${s===rascunho.status?"selected":""}>${s}</option>`).join("");
+
+  segmentos($("segEtapa"), ETAPAS, rascunho.etapa, x => rascunho.etapa = x);
+  segmentos($("segPri"), PRIS, rascunho.prioridade, x => rascunho.prioridade = x);
+
+  $("btApagar").classList.toggle("oculto", !v);
+  $("btDuplicar").classList.toggle("oculto", !v);
+
+  abrir($("modalFicha"));
+  if(!v && window.innerWidth >= 900) setTimeout(() => $("fTema").focus(), 120);
+}
+
+$("btModelo").addEventListener("click", () => {
+  const modelo = MODELOS[rascunho.etapa];
+  const atual = $("fRoteiro").value.trim();
+  if(atual && !confirm("Substituir o roteiro atual pelo modelo de " + rascunho.etapa + "?")) return;
+  $("fRoteiro").value = modelo;
+  $("fRoteiro").focus();
+});
+
+$("btSalvar").addEventListener("click", () => {
+  const tema = $("fTema").value.trim();
+  if(!tema){ $("fTema").focus(); avisar("Escreva o tema do vídeo.", null); return; }
+
+  const dados = {
+    tema,
+    etapa: rascunho.etapa,
+    prioridade: rascunho.prioridade,
+    status: $("fStatus").value,
+    data: $("fData").value,
+    link: $("fLink").value.trim(),
+    roteiro: $("fRoteiro").value,
+    mexido: Date.now()
+  };
+
+  if(editando){
+    const v = S.videos.find(x => x.id === editando);
+    Object.assign(v, dados);
+  }else{
+    S.videos.unshift(Object.assign({ id: novoId(), criado: Date.now() }, dados));
+    if(window.innerWidth < 900) S.filtro.coluna = dados.status;
+  }
+  salvar(); desenhar(); fechar($("modalFicha")); agendarSincronia();
+});
+
+$("btDuplicar").addEventListener("click", () => {
+  const v = S.videos.find(x => x.id === editando); if(!v) return;
+  const copia = Object.assign({}, v, {
+    id: novoId(), criado: Date.now(), mexido: Date.now(),
+    tema: v.tema + " (cópia)", status: "A gravar"
+  });
+  S.videos.unshift(copia);
+  salvar(); desenhar(); fechar($("modalFicha")); agendarSincronia();
+  avisar("Cópia criada em A gravar.", null);
+});
+
+$("btApagar").addEventListener("click", () => {
+  const i = S.videos.findIndex(x => x.id === editando); if(i < 0) return;
+  apagado = { video: S.videos[i], indice: i };
+  S.videos.splice(i,1);
+  S.apagados.push({ id: apagado.video.id, quando: Date.now() });
+  salvar(); desenhar(); fechar($("modalFicha")); agendarSincronia();
+  avisar(`"${cortar(apagado.video.tema)}" foi apagado.`, "Desfazer", () => {
+    S.videos.splice(apagado.indice, 0, apagado.video);
+    apagado.video.mexido = Date.now();
+    S.apagados = S.apagados.filter(x => x.id !== apagado.video.id);
+    apagado = null; salvar(); desenhar(); agendarSincronia();
+  });
+});
+
+function novoId(){
+  return "v" + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+}
+
+/* =====================================================================
+   MODAIS
+   ===================================================================== */
+function abrir(m){ m.classList.add("on"); document.body.style.overflow = "hidden"; }
+function fechar(m){ m.classList.remove("on"); document.body.style.overflow = ""; }
+$("fecharFicha").addEventListener("click", () => fechar($("modalFicha")));
+$("fecharAjustes").addEventListener("click", () => fechar($("modalAjustes")));
+[$("modalFicha"), $("modalAjustes")].forEach(m => {
+  m.addEventListener("click", e => { if(e.target === m) fechar(m); });
+});
+$("btNovo").addEventListener("click", () => abrirFicha(null));
+$("btAjustes").addEventListener("click", () => { montarAjustes(); abrir($("modalAjustes")); });
+
+/* =====================================================================
+   FILTROS
+   ===================================================================== */
+function montarChips(){
+  const itens = [["todas","Todas"]].concat(ETAPAS.map(e => [e,e]));
+  $("chips").innerHTML = itens.map(([v,rot]) => `
+    <button class="chip" data-v="${v}" ${v!=="todas"?`data-e="${v}"`:""}
+            aria-pressed="${S.filtro.etapa===v}">
+      ${v!=="todas" ? '<i></i>' : ''}${rot}
+    </button>`).join("");
+}
+$("chips").addEventListener("click", e => {
+  const c = e.target.closest(".chip"); if(!c) return;
+  S.filtro.etapa = c.dataset.v;
+  montarChips(); desenhar();
+});
+
+$("busca").addEventListener("input", e => { S.filtro.q = e.target.value; desenhar(); });
+$("limparBusca").addEventListener("click", () => {
+  S.filtro.q = ""; $("busca").value = ""; desenhar(); $("busca").focus();
+});
+$("ordenar").addEventListener("change", e => { S.filtro.ordem = e.target.value; desenhar(); });
+
+/* =====================================================================
+   AJUSTES
+   ===================================================================== */
+function montarAjustes(){
+  const temUrl = !!NUVEM.URL, temChave = !!chaveAtual();
+  $("dicaNuvem").textContent =
+    !temUrl  ? "Este arquivo não tem endereço de nuvem. Preencha NUVEM.URL no topo do código."
+    : !temChave ? "Falta a chave deste aparelho. Toque em Chave deste aparelho para conectar."
+    : "Os vídeos sobem para a sua planilha e voltam nos outros aparelhos. Em conflito, vence a alteração mais recente.";
+  $("btSincronizar").disabled = !nuvemLigada();
+  $("btSincronizar").style.opacity = nuvemLigada() ? 1 : .45;
+  $("btChave").disabled = !temUrl;
+  $("btChave").style.opacity = temUrl ? 1 : .45;
+  $("btChave").textContent = temChave ? "Trocar a chave" : "Chave deste aparelho";
+  $("btDesconectar").classList.toggle("oculto", !temChave);
+  if(!ultimaSinc) pintarStatus(nuvemLigada() ? "Ainda não sincronizou" : "Só neste aparelho");
+
+  segmentos($("segTema"), ["auto","claro","escuro"], S.cfg.tema, x => {
+    S.cfg.tema = x; aplicarTema(); salvar();
+  });
+  $("cores").innerHTML = ACENTOS.map(a => `
+    <button class="cor" data-a="${a.id}" style="--c:${a.cor}"
+            aria-pressed="${S.cfg.acento===a.id}" aria-label="Cor ${a.id}">
+      <span></span>
+    </button>`).join("");
+}
+$("btSincronizar").addEventListener("click", () => sincronizar(false));
+$("btChave").addEventListener("click", () => { fechar($("modalAjustes")); abrirChave(); });
+$("btDesconectar").addEventListener("click", () => {
+  if(!confirm("Esquecer a chave neste aparelho? Os vídeos continuam salvos aqui.")) return;
+  esquecerChave(); montarAjustes(); pintarStatus("Só neste aparelho");
+  avisar("Chave removida deste aparelho.", null);
+});
+
+$("cores").addEventListener("click", e => {
+  const b = e.target.closest(".cor"); if(!b) return;
+  S.cfg.acento = b.dataset.a;
+  aplicarTema(); salvar(); montarAjustes();
+});
+
+/* ---------- backup ---------- */
+function pacote(){
+  return JSON.stringify({
+    app:"bancada-funil", versao:1,
+    exportado: new Date().toISOString(),
+    cfg:S.cfg, videos:S.videos
+  }, null, 2);
+}
+$("btExportar").addEventListener("click", () => {
+  const blob = new Blob([pacote()], { type:"application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "bancada-" + new Date().toISOString().slice(0,10) + ".json";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+});
+$("btCopiar").addEventListener("click", async () => {
+  try{
+    await navigator.clipboard.writeText(pacote());
+    avisar("Backup copiado. Cole onde quiser guardar.", null);
+  }catch(e){
+    avisar("Não consegui copiar. Use Baixar backup.", null);
+  }
+});
+$("btImportar").addEventListener("click", () => $("arquivo").click());
+$("arquivo").addEventListener("change", e => {
+  const f = e.target.files[0]; if(!f) return;
+  const leitor = new FileReader();
+  leitor.onload = () => {
+    try{
+      const j = JSON.parse(leitor.result);
+      if(!Array.isArray(j.videos)) throw new Error("sem lista de vídeos");
+      if(!confirm(`Importar ${j.videos.length} vídeo(s)? Isso substitui o que está aqui agora.`)) return;
+      S.videos = j.videos;
+      if(j.cfg) S.cfg = Object.assign(S.cfg, j.cfg);
+      salvar(); aplicarTema(); montarChips(); desenhar(); fechar($("modalAjustes"));
+      avisar("Backup importado.", null);
+    }catch(err){
+      avisar("Arquivo inválido. Use um backup gerado aqui.", null);
+    }
+  };
+  leitor.readAsText(f);
+  e.target.value = "";
+});
+
+/* =====================================================================
+   SINCRONIA
+   O aparelho manda o que tem e recebe o estado consolidado.
+   Em conflito vence a alteração mais recente (campo "mexido").
+   Sem conexão ou sem NUVEM.URL, o app segue funcionando local.
+   ===================================================================== */
+let sincronizando = false;
+let tempoSinc = null;
+let ultimaSinc = null;
+
+const nuvemLigada = () => !!(NUVEM.URL && chaveAtual());
+
+function agendarSincronia(){
+  if(!nuvemLigada() || !NUVEM.AUTO) return;
+  clearTimeout(tempoSinc);
+  tempoSinc = setTimeout(() => sincronizar(true), 2500);
+}
+
+async function sincronizar(silencioso){
+  if(!NUVEM.URL){
+    if(!silencioso) avisar("Nuvem não configurada neste arquivo.", null);
+    return;
+  }
+  if(!chaveAtual()){
+    if(!silencioso) abrirChave();
+    return;
+  }
+  if(sincronizando) return;
+  if(!navigator.onLine){
+    if(!silencioso) avisar("Sem conexão. Seus dados continuam salvos aqui.", null);
+    return;
+  }
+
+  sincronizando = true;
+  pintarStatus("Sincronizando…");
+
+  try{
+    // text/plain evita o bloqueio de CORS do Apps Script
+    const r = await fetch(NUVEM.URL, {
+      method:"POST",
+      headers:{ "Content-Type":"text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        acao:"sincronizar",
+        chave: chaveAtual(),
+        videos: S.videos,
+        apagados: S.apagados
+      })
+    });
+    const j = await r.json();
+
+    if(!j.ok){
+      if(j.erro === "chave"){
+        esquecerChave();   // volta para a embutida; se ela também falhar, a folha abre
+        pintarStatus("Chave recusada");
+        abrirChave("A chave não confere. Tente de novo.");
+      }else{
+        pintarStatus("Falhou");
+        if(!silencioso) avisar("Não consegui sincronizar agora.", null);
+      }
+      return;
+    }
+
+    aplicarDoServidor(j);
+    ultimaSinc = Date.now();
+    pintarStatus("Sincronizado " + horaCurta(ultimaSinc));
+    if(!silencioso) avisar(`Sincronizado. ${S.videos.length} vídeo(s) na nuvem.`, null);
+
+  }catch(err){
+    console.warn("sincronia:", err);
+    pintarStatus("Sem conexão");
+    if(!silencioso) avisar("Não consegui falar com o servidor.", null);
+  }finally{
+    sincronizando = false;
+  }
+}
+
+/** O servidor devolve o estado consolidado; adotamos ele por inteiro. */
+function aplicarDoServidor(j){
+  const apagadosServidor = new Set((j.apagados || []).map(x => String(x.id)));
+  S.videos = (j.videos || []).filter(v => !apagadosServidor.has(String(v.id)));
+
+  // exclusões já registradas lá podem sair da fila local
+  S.apagados = S.apagados.filter(x => !apagadosServidor.has(String(x.id)));
+
+  salvar();
+  montarChips();
+  desenhar();
+}
+
+function horaCurta(ms){
+  const d = new Date(ms);
+  return String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+}
+
+function pintarStatus(txt){
+  const el = $("statusSinc");
+  if(el) el.textContent = txt;
+}
+
+window.addEventListener("online", () => { if(NUVEM.AUTO) sincronizar(true); });
+
+/* ---------- chave da nuvem ---------- */
+function abrirChave(aviso){
+  $("textoChave").textContent = aviso ||
+    "Digite a chave que você definiu no script da planilha. Ela fica guardada só neste aparelho e não aparece em lugar nenhum da página.";
+  $("campoChave").value = "";
+  abrir($("modalChave"));
+  setTimeout(() => $("campoChave").focus(), 150);
+}
+$("fecharChave").addEventListener("click", () => fechar($("modalChave")));
+$("agoraNao").addEventListener("click", () => fechar($("modalChave")));
+$("modalChave").addEventListener("click", e => { if(e.target === $("modalChave")) fechar($("modalChave")); });
+$("campoChave").addEventListener("keydown", e => { if(e.key === "Enter") $("salvarChave").click(); });
+$("salvarChave").addEventListener("click", () => {
+  const k = $("campoChave").value.trim();
+  if(!k){ $("campoChave").focus(); return; }
+  guardarChave(k);
+  fechar($("modalChave"));
+  sincronizar(false);
+});
+
+/* =====================================================================
+   SOMAR IDEIAS — acrescenta sem apagar
+   Aceita o backup inteiro {videos:[...]} ou só a lista [...].
+   ===================================================================== */
+function abrirSomar(){
+  $("campoSomar").value = "";
+  $("previaSomar").textContent = "";
+  abrir($("modalSomar"));
+}
+$("btSomar").addEventListener("click", () => { fechar($("modalAjustes")); abrirSomar(); });
+$("fecharSomar").addEventListener("click", () => fechar($("modalSomar")));
+$("modalSomar").addEventListener("click", e => { if(e.target === $("modalSomar")) fechar($("modalSomar")); });
+
+$("colarSomar").addEventListener("click", async () => {
+  try{
+    const t = await navigator.clipboard.readText();
+    $("campoSomar").value = t;
+    conferirSomar();
+  }catch(e){
+    avisar("Seu navegador não deixou colar. Cole com o dedo mesmo.", null);
+    $("campoSomar").focus();
+  }
+});
+$("campoSomar").addEventListener("input", conferirSomar);
+
+function lerBloco(txt){
+  const j = JSON.parse(txt);
+  const lista = Array.isArray(j) ? j : (Array.isArray(j.videos) ? j.videos : null);
+  if(!lista) throw new Error("não achei a lista de vídeos");
+  return lista;
+}
+
+function conferirSomar(){
+  const txt = $("campoSomar").value.trim();
+  if(!txt){ $("previaSomar").textContent = ""; return; }
+  try{
+    const lista = lerBloco(txt);
+    const existentes = new Set(S.videos.map(v => String(v.id)));
+    const novos = lista.filter(v => !existentes.has(String(v.id))).length;
+    $("previaSomar").textContent =
+      lista.length + " no bloco · " + novos + " novo(s) · " + (lista.length - novos) + " já existente(s)";
+    $("previaSomar").style.color = "var(--meia)";
+  }catch(err){
+    $("previaSomar").textContent = "Não consegui ler esse texto. Falta um pedaço do bloco?";
+    $("previaSomar").style.color = "var(--alerta)";
+  }
+}
+
+$("aplicarSomar").addEventListener("click", () => {
+  const txt = $("campoSomar").value.trim();
+  if(!txt){ $("campoSomar").focus(); return; }
+
+  let lista;
+  try{ lista = lerBloco(txt); }
+  catch(err){ avisar("Bloco inválido. Copie o texto inteiro, das chaves até o fim.", null); return; }
+
+  const porId = {};
+  S.videos.forEach(v => porId[String(v.id)] = v);
+
+  let criados = 0, atualizados = 0, base = Date.now();
+  lista.forEach((v, i) => {
+    if(!v || !v.tema) return;
+    const id = String(v.id || ("ideia-" + base.toString(36) + "-" + i));
+    const limpo = {
+      id,
+      criado: Number(v.criado) || (base - i*1000),
+      mexido: Number(v.mexido) || (base - i*1000),
+      tema: String(v.tema),
+      etapa: ETAPAS.includes(v.etapa) ? v.etapa : "Topo",
+      prioridade: PRIS.includes(v.prioridade) ? v.prioridade : "Média",
+      status: STATUS.includes(v.status) ? v.status : "A gravar",
+      data: v.data || "",
+      link: v.link || "",
+      roteiro: v.roteiro || ""
+    };
+    const atual = porId[id];
+    if(!atual){
+      S.videos.unshift(limpo); porId[id] = limpo; criados++;
+    }else if(limpo.mexido > (Number(atual.mexido) || 0)){
+      Object.assign(atual, limpo); atualizados++;
+    }
+  });
+
+  salvar(); montarChips(); desenhar(); fechar($("modalSomar")); agendarSincronia();
+  avisar(
+    criados + (criados === 1 ? " ideia somada" : " ideias somadas") +
+    (atualizados ? " · " + atualizados + " atualizada(s)" : ""), null);
+});
+
+/* =====================================================================
+   TOAST
+   ===================================================================== */
+function avisar(texto, rotuloAcao, acao){
+  clearTimeout(tempoToast);
+  $("toastTxt").textContent = texto;
+  const bt = $("toastAcao");
+  if(rotuloAcao){
+    bt.textContent = rotuloAcao;
+    bt.classList.remove("oculto");
+    bt.onclick = () => { acao && acao(); esconderToast(); };
+  }else{
+    bt.classList.add("oculto"); bt.onclick = null;
+  }
+  $("toast").classList.add("on");
+  tempoToast = setTimeout(esconderToast, rotuloAcao ? 7000 : 3200);
+}
+function esconderToast(){ $("toast").classList.remove("on"); apagado = null; }
+
+/* =====================================================================
+   TECLADO
+   ===================================================================== */
+document.addEventListener("keydown", e => {
+  const digitando = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+
+  if(e.key === "Escape"){
+    if($("modalSomar").classList.contains("on")) fechar($("modalSomar"));
+    else if($("modalChave").classList.contains("on")) fechar($("modalChave"));
+    else if($("modalFicha").classList.contains("on")) fechar($("modalFicha"));
+    else if($("modalAjustes").classList.contains("on")) fechar($("modalAjustes"));
+    else if(S.filtro.q){ S.filtro.q=""; $("busca").value=""; desenhar(); }
+    return;
+  }
+  if((e.metaKey || e.ctrlKey) && e.key === "Enter"
+     && $("modalFicha").classList.contains("on")){
+    e.preventDefault(); $("btSalvar").click(); return;
+  }
+  if(digitando) return;
+
+  if(e.key === "n" || e.key === "N"){ e.preventDefault(); abrirFicha(null); }
+  if(e.key === "/"){ e.preventDefault(); $("busca").focus(); }
+});
+
+/* =====================================================================
+   INÍCIO
+   ===================================================================== */
+let larguraAnterior = window.innerWidth;
+window.addEventListener("resize", () => {
+  const cruzou = (larguraAnterior < 900) !== (window.innerWidth < 900);
+  larguraAnterior = window.innerWidth;
+  if(cruzou) desenhar();
+});
+
+(function iniciar(){
+  carregar();
+  aplicarTema();
+  montarChips();
+  desenhar();
+  if(NUVEM.URL && !chaveAtual()) setTimeout(() => abrirChave(), 900);
+  // com CHAVE_EMBUTIDA preenchida, a condição acima nunca dispara
+  else if(nuvemLigada() && NUVEM.AUTO) setTimeout(() => sincronizar(true), 600);
+})();
+</script>
+</body>
+</html>
