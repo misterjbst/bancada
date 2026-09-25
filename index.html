@@ -292,7 +292,7 @@
     background-repeat:no-repeat;background-position:right 12px center;background-size:10px;}
   input:focus,select:focus,textarea:focus{border-color:var(--acento)}
   textarea{min-height:240px;resize:vertical;line-height:1.55;font-size:14.5px}
-  #fRoteiro{min-height:300px}
+  #fRoteiro{min-height:220px;overflow:hidden}
   .dupla{display:grid;grid-template-columns:1fr 1fr;gap:11px}
   .dupla > .campo{min-width:0}
   input[type=date]{
@@ -345,6 +345,64 @@
   .linha-info b{color:var(--tinta);font-weight:600}
   .linha-info ol{margin:8px 0 0 18px}
   .linha-info li{margin-bottom:4px}
+
+
+  /* ---------- modo leitura do roteiro ---------- */
+  .leitura{
+    position:fixed;inset:0;z-index:70;background:var(--bg);
+    display:none;flex-direction:column;
+  }
+  .leitura.on{display:flex}
+  .leitura-topo{
+    display:flex;align-items:center;gap:10px;flex:none;
+    padding:calc(12px + env(safe-area-inset-top)) 14px 12px;
+    border-bottom:1px solid var(--linha);background:var(--bg);
+  }
+  .leitura-topo h2{
+    font-size:15px;font-weight:600;flex:1;line-height:1.3;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .zoom{display:flex;gap:4px;flex:none}
+  .zoom button{
+    width:38px;height:38px;border-radius:8px;border:1px solid var(--linha);
+    background:var(--sup);color:var(--meia);font-size:15px;font-weight:600;
+  }
+  .leitura-corpo{
+    flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:22px 20px calc(40px + env(safe-area-inset-bottom));
+    max-width:720px;margin:0 auto;width:100%;
+  }
+  .rt-meta{font-size:calc(var(--ler) * .78);color:var(--fraca);line-height:1.5}
+  .rt-cab{
+    font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.07em;
+    font-size:calc(var(--ler) * .78);color:var(--acento);
+    margin:26px 0 8px;
+  }
+  .rt-cab:first-child{margin-top:0}
+  .rt-fala{
+    font-size:var(--ler);line-height:1.5;color:var(--tinta);
+    font-weight:500;margin-bottom:6px;
+  }
+  .rt-tela{
+    font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:calc(var(--ler) * 1.05);line-height:1.2;color:var(--tinta);
+    background:var(--sup);border:1px solid var(--linha);border-radius:10px;
+    padding:16px 18px;margin-bottom:6px;
+  }
+  .rt-txt{font-size:calc(var(--ler) * .88);line-height:1.6;color:var(--meia);margin-bottom:6px}
+  .rt-gatilho{
+    display:inline-block;font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:calc(var(--ler) * .8);letter-spacing:.06em;
+    background:var(--acento);color:#fff;padding:8px 14px;border-radius:8px;margin-top:4px;
+  }
+  html[data-tema="claro"] .rt-gatilho{color:#fff}
+  .rt-vazio{color:var(--fraca);font-size:15px}
+
+  .ler-btn{
+    font-size:12.5px;color:var(--acento);font-weight:550;
+    padding:5px 9px;border-radius:6px;
+  }
+  .ler-btn:hover{background:var(--acento-sut)}
 
   /* toast */
   .toast{
@@ -456,7 +514,10 @@
       <div class="campo">
         <div class="rot-linha">
           <label for="fRoteiro" style="margin:0">Roteiro</label>
-          <button class="modelo" id="btModelo">Usar modelo da etapa</button>
+          <span style="display:flex;gap:4px">
+          <button class="ler-btn" id="btLer">Ler inteiro</button>
+          <button class="modelo" id="btModelo">Usar modelo</button>
+        </span>
         </div>
         <textarea id="fRoteiro" placeholder="Gancho, desenvolvimento, chamada."></textarea>
       </div>
@@ -598,6 +659,21 @@
       <button class="bt prim" id="aplicarSomar">Somar ao quadro</button>
     </div>
   </div>
+</div>
+
+<!-- ================= LEITURA DO ROTEIRO ================= -->
+<div class="leitura" id="modalLer">
+  <div class="leitura-topo">
+    <button class="ic" id="fecharLer" aria-label="Voltar">
+      <svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg>
+    </button>
+    <h2 id="lerTitulo"></h2>
+    <div class="zoom">
+      <button id="lerMenos" aria-label="Diminuir texto">A−</button>
+      <button id="lerMais" aria-label="Aumentar texto">A+</button>
+    </div>
+  </div>
+  <div class="leitura-corpo" id="lerCorpo"></div>
 </div>
 
 <div class="toast" id="toast">
@@ -981,14 +1057,22 @@ function abrirFicha(id){
   $("btDuplicar").classList.toggle("oculto", !v);
 
   abrir($("modalFicha"));
+  requestAnimationFrame(() => ajustarAltura($("fRoteiro")));
   if(!v && window.innerWidth >= 900) setTimeout(() => $("fTema").focus(), 120);
 }
+
+function ajustarAltura(ta){
+  ta.style.height = "auto";
+  ta.style.height = Math.min(ta.scrollHeight + 4, 1400) + "px";
+}
+$("fRoteiro").addEventListener("input", e => ajustarAltura(e.target));
 
 $("btModelo").addEventListener("click", () => {
   const modelo = MODELOS[rascunho.etapa];
   const atual = $("fRoteiro").value.trim();
   if(atual && !confirm("Substituir o roteiro atual pelo modelo de " + rascunho.etapa + "?")) return;
   $("fRoteiro").value = modelo;
+  ajustarAltura($("fRoteiro"));
   $("fRoteiro").focus();
 });
 
@@ -1378,6 +1462,85 @@ $("aplicarSomar").addEventListener("click", () => {
 });
 
 /* =====================================================================
+   LEITURA DO ROTEIRO — tela cheia, para usar na hora de gravar
+   ===================================================================== */
+const LER_TAM = "bancada.tamanho.leitura";
+let tamLeitura = 19;
+try{ tamLeitura = Number(localStorage.getItem(LER_TAM)) || 19; }catch(e){}
+
+function aplicarTamanho(){
+  tamLeitura = Math.max(15, Math.min(30, tamLeitura));
+  $("lerCorpo").style.setProperty("--ler", tamLeitura + "px");
+  try{ localStorage.setItem(LER_TAM, String(tamLeitura)); }catch(e){}
+}
+$("lerMais").addEventListener("click", () => { tamLeitura += 2; aplicarTamanho(); });
+$("lerMenos").addEventListener("click", () => { tamLeitura -= 2; aplicarTamanho(); });
+
+/* transforma o texto do roteiro em blocos legíveis */
+function pintarRoteiro(txt){
+  const alvo = $("lerCorpo");
+  alvo.innerHTML = "";
+  const linhas = String(txt || "").split("\n");
+
+  const ehMeta   = l => /^(DURAÇÃO|OBJETIVO)\b/.test(l);
+  const ehCab    = l => /^(TEXTO FIXO NA TELA|GANCHO|CTA|POR QUE FUNCIONA)\b/.test(l)
+                        || /^\d+\s·\s/.test(l);
+  const ehTela   = (l, ant) => /^TEXTO FIXO NA TELA\b/.test(ant || "");
+  const ehGat    = l => /^PALAVRA-GATILHO:/.test(l);
+
+  let anterior = "";
+  linhas.forEach(bruta => {
+    const l = bruta.trim();
+    if(!l){ anterior = ""; return; }
+
+    let el = document.createElement("div");
+    if(ehGat(l)){
+      el.className = "rt-gatilho";
+      el.textContent = l.replace("PALAVRA-GATILHO:", "Comentar:").trim();
+    }else if(ehMeta(l)){
+      el.className = "rt-meta";
+      el.textContent = l;
+    }else if(ehCab(l)){
+      el.className = "rt-cab";
+      el.textContent = l;
+    }else if(ehTela(l, anterior)){
+      el.className = "rt-tela";
+      el.textContent = l;
+    }else if(/^["“]/.test(l)){
+      el.className = "rt-fala";
+      el.textContent = l.replace(/^["“]|["”]$/g, "");
+    }else{
+      el.className = "rt-txt";
+      el.textContent = l;
+    }
+    alvo.appendChild(el);
+    anterior = l;
+  });
+
+  if(!alvo.children.length){
+    const v = document.createElement("p");
+    v.className = "rt-vazio";
+    v.textContent = "Este vídeo ainda não tem roteiro. Escreva na ficha ou use o modelo da etapa.";
+    alvo.appendChild(v);
+  }
+}
+
+function abrirLeitura(){
+  $("lerTitulo").textContent = $("fTema").value.trim() || "Sem tema";
+  pintarRoteiro($("fRoteiro").value);
+  aplicarTamanho();
+  $("lerCorpo").scrollTop = 0;
+  $("modalLer").classList.add("on");
+  document.body.style.overflow = "hidden";
+}
+function fecharLeitura(){
+  $("modalLer").classList.remove("on");
+  document.body.style.overflow = "hidden";   // a ficha continua aberta por baixo
+}
+$("btLer").addEventListener("click", abrirLeitura);
+$("fecharLer").addEventListener("click", fecharLeitura);
+
+/* =====================================================================
    TOAST
    ===================================================================== */
 function avisar(texto, rotuloAcao, acao){
@@ -1403,7 +1566,8 @@ document.addEventListener("keydown", e => {
   const digitando = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
 
   if(e.key === "Escape"){
-    if($("modalSomar").classList.contains("on")) fechar($("modalSomar"));
+    if($("modalLer").classList.contains("on")) fecharLeitura();
+    else if($("modalSomar").classList.contains("on")) fechar($("modalSomar"));
     else if($("modalChave").classList.contains("on")) fechar($("modalChave"));
     else if($("modalFicha").classList.contains("on")) fechar($("modalFicha"));
     else if($("modalAjustes").classList.contains("on")) fechar($("modalAjustes"));
