@@ -362,17 +362,28 @@
   }
 
   .marca-anim{width:132px;height:150px;position:relative}
+  .carga{
+    position:absolute;left:50%;transform:translateX(-50%);
+    bottom:-34px;width:96px;height:2px;border-radius:2px;
+    background:var(--linha);overflow:hidden;
+  }
+  .carga i{
+    display:block;height:100%;width:0;background:var(--acento);
+    border-radius:2px;
+    animation:enche 3.2s cubic-bezier(.32,.5,.2,1) .2s forwards;
+  }
+  @keyframes enche{ to{ width:100% } }
   .marca-anim svg{width:100%;display:block;overflow:visible}
 
   .fatia{
     fill:var(--tinta);
     opacity:0;
     transform-origin:center top;
-    animation:caiFatia .46s cubic-bezier(.22,1.2,.36,1) forwards;
+    animation:caiFatia .62s cubic-bezier(.22,1.15,.36,1) forwards;
   }
-  .fatia.f1{animation-delay:.06s}
-  .fatia.f2{animation-delay:.17s}
-  .fatia.f3{animation-delay:.28s}
+  .fatia.f1{animation-delay:.18s}
+  .fatia.f2{animation-delay:.52s}
+  .fatia.f3{animation-delay:.86s}
   @keyframes caiFatia{
     0%   { opacity:0; transform:translateY(-38px) scaleY(.6) }
     60%  { opacity:1 }
@@ -382,8 +393,13 @@
   .pingo{
     fill:var(--acento);
     opacity:0;
-    animation:pinga .42s cubic-bezier(.3,1.35,.4,1) forwards;
-    animation-delay:.5s;
+    animation:pinga .58s cubic-bezier(.3,1.35,.4,1) forwards,
+              respira 1.4s ease-in-out 2.1s 1;
+    animation-delay:1.5s, 2.1s;
+  }
+  @keyframes respira{
+    0%,100%{ transform:scale(1) }
+    50%    { transform:scale(1.16) }
   }
   @keyframes pinga{
     0%   { opacity:0; transform:translateY(-26px) scale(.35) }
@@ -408,6 +424,7 @@
 
   @media (prefers-reduced-motion:reduce){
     .fatia,.pingo{animation:none;opacity:1;transform:none}
+    .carga i{animation:none;width:100%}
     .abertura.saindo{animation:none;opacity:0}
     body.entrou main,body.entrou header,body.entrou .novo{animation:none}
   }
@@ -507,6 +524,7 @@
       <polygon class="fatia f3" points="50,74 82,74 74,100 58,100"/>
       <circle  class="pingo" cx="66" cy="126" r="13"/>
     </svg>
+    <div class="carga"><i></i></div>
   </div>
 </div>
 
@@ -1670,7 +1688,7 @@ document.addEventListener("keydown", e => {
   if(!tela) return;
 
   const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const espera = semMovimento ? 260 : 1080;
+  const espera = semMovimento ? 300 : 3500;
   let saiu = false;
 
   function sair(){
@@ -1685,7 +1703,7 @@ document.addEventListener("keydown", e => {
   tela.addEventListener("click", sair);      // impaciente pode pular
   setTimeout(sair, espera);
   // rede lenta ou erro: nunca deixa a abertura presa na tela
-  setTimeout(sair, 3000);
+  setTimeout(sair, 6000);
 })();
 
 /* =====================================================================
