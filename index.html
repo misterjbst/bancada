@@ -253,6 +253,17 @@
   }
   .novo svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round}
   .novo:active{transform:scale(.97)}
+  .analisar-fab{
+    position:fixed;right:max(16px,env(safe-area-inset-right));
+    bottom:calc(82px + env(safe-area-inset-bottom));z-index:35;
+    width:52px;height:52px;border-radius:26px;
+    background:var(--sup2);border:1px solid var(--linha);color:var(--tinta);
+    display:grid;place-items:center;box-shadow:0 4px 16px rgba(0,0,0,.28);
+  }
+  .analisar-fab svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+  .analisar-fab:active{transform:scale(.95)}
+  .girando{animation:gira 1s linear infinite}
+  @keyframes gira{to{transform:rotate(360deg)}}
 
   /* ---------------- folha / modal ---------------- */
   .fundo-modal{
@@ -558,6 +569,10 @@
   <div class="colunas" id="quadro"></div>
 </main>
 
+<button class="analisar-fab" id="btAnalisar" aria-label="Analisar link">
+  <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+</button>
+
 <button class="novo" id="btNovo">
   <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
   Novo vídeo
@@ -768,6 +783,39 @@
     </div>
   </div>
   <div class="leitura-corpo" id="lerCorpo"></div>
+</div>
+
+<!-- ================= ANALISAR LINK ================= -->
+<div class="fundo-modal" id="modalAnalise">
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="tituloAnalise">
+    <div class="folha-topo">
+      <h2 id="tituloAnalise">Analisar um vídeo</h2>
+      <button class="ic" id="fecharAnalise" aria-label="Fechar">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="folha-corpo">
+      <p style="font-size:14px;color:var(--meia);margin-bottom:16px">
+        Cole um link de referência. Eu extraio a mecânica e escrevo um vídeo novo,
+        sobre o seu assunto, com a mesma estrutura. Nenhuma frase do original é reaproveitada.
+      </p>
+      <div class="campo">
+        <label for="aLink">Link do vídeo</label>
+        <input id="aLink" type="url" inputmode="url" autocapitalize="none"
+               spellcheck="false" placeholder="https://" enterkeyhint="next">
+      </div>
+      <div class="campo" id="wrapLegenda">
+        <label for="aLegenda">Legenda do vídeo <i id="rotLegenda">— obrigatória fora do YouTube</i></label>
+        <textarea id="aLegenda" style="min-height:150px" placeholder="Cole aqui a legenda ou as falas do vídeo"
+                  autocapitalize="none"></textarea>
+      </div>
+      <p id="dicaAnalise" style="font-size:12.5px;color:var(--fraca)"></p>
+    </div>
+    <div class="folha-pe">
+      <button class="bt sec" id="colarLink">Colar</button>
+      <button class="bt prim" id="btRodar">Analisar</button>
+    </div>
+  </div>
 </div>
 
 <div class="toast" id="toast">
@@ -1635,6 +1683,100 @@ $("btLer").addEventListener("click", abrirLeitura);
 $("fecharLer").addEventListener("click", fecharLeitura);
 
 /* =====================================================================
+   ANALISAR LINK
+   O app manda link e legenda para o Apps Script, que fala com o Gemini.
+   A chave do Gemini nunca passa por aqui.
+   ===================================================================== */
+let analisando = false;
+
+const ehYoutube = u => /(?:youtube\.com|youtu\.be)/i.test(String(u || ""));
+
+function abrirAnalise(){
+  $("aLink").value = "";
+  $("aLegenda").value = "";
+  $("dicaAnalise").textContent = "";
+  ajustarAnalise();
+  abrir($("modalAnalise"));
+  setTimeout(() => $("aLink").focus(), 150);
+}
+
+function ajustarAnalise(){
+  const yt = ehYoutube($("aLink").value);
+  $("rotLegenda").textContent = yt ? "— opcional, o vídeo será assistido" : "— obrigatória fora do YouTube";
+  $("dicaAnalise").textContent = yt
+    ? "Link do YouTube: não precisa colar nada além disso."
+    : "TikTok e Reels não podem ser assistidos de fora. Cole a legenda do vídeo abaixo.";
+}
+$("aLink").addEventListener("input", ajustarAnalise);
+
+$("btAnalisar").addEventListener("click", abrirAnalise);
+$("fecharAnalise").addEventListener("click", () => fechar($("modalAnalise")));
+$("modalAnalise").addEventListener("click", e => { if(e.target === $("modalAnalise")) fechar($("modalAnalise")); });
+
+$("colarLink").addEventListener("click", async () => {
+  try{
+    const t = (await navigator.clipboard.readText()).trim();
+    if(/^https?:\/\//i.test(t)){ $("aLink").value = t; ajustarAnalise(); }
+    else { $("aLegenda").value = t; }
+  }catch(e){
+    avisar("Seu navegador não deixou colar. Cole com o dedo.", null);
+  }
+});
+
+$("btRodar").addEventListener("click", async () => {
+  if(analisando) return;
+
+  const link = $("aLink").value.trim();
+  const legenda = $("aLegenda").value.trim();
+
+  if(!link && !legenda){ $("aLink").focus(); return; }
+  if(link && !ehYoutube(link) && !legenda){
+    $("dicaAnalise").innerHTML = '<span style="color:var(--alerta)">Fora do YouTube eu preciso da legenda. Cole abaixo.</span>';
+    $("aLegenda").focus();
+    return;
+  }
+  if(!NUVEM.URL){ avisar("A nuvem não está configurada neste arquivo.", null); return; }
+
+  analisando = true;
+  const bt = $("btRodar");
+  bt.disabled = true;
+  bt.textContent = "Analisando…";
+  $("btAnalisar").classList.add("girando");
+  if(document.activeElement) document.activeElement.blur();
+
+  try{
+    const r = await fetch(NUVEM.URL, {
+      method:"POST",
+      headers:{ "Content-Type":"text/plain;charset=utf-8" },
+      body: JSON.stringify({ acao:"analisar", chave: chaveAtual(), link, legenda })
+    });
+    const j = await r.json();
+
+    if(!j.ok || !j.video){
+      $("dicaAnalise").innerHTML = '<span style="color:var(--alerta)">'
+        + (j.mensagem || j.erro || "Não consegui analisar agora.") + '</span>';
+      return;
+    }
+
+    S.videos.unshift(j.video);
+    if(window.innerWidth < 900) S.filtro.coluna = "A gravar";
+    salvar(); montarChips(); desenhar();
+    fechar($("modalAnalise"));
+    abrirFicha(j.video.id);
+    avisar("Roteiro criado a partir da referência.", null);
+
+  }catch(err){
+    console.warn("análise:", err);
+    $("dicaAnalise").innerHTML = '<span style="color:var(--alerta)">Não consegui falar com o servidor.</span>';
+  }finally{
+    analisando = false;
+    bt.disabled = false;
+    bt.textContent = "Analisar";
+    $("btAnalisar").classList.remove("girando");
+  }
+});
+
+/* =====================================================================
    TOAST
    ===================================================================== */
 function avisar(texto, rotuloAcao, acao){
@@ -1661,6 +1803,7 @@ document.addEventListener("keydown", e => {
 
   if(e.key === "Escape"){
     if($("modalLer").classList.contains("on")) fecharLeitura();
+    else if($("modalAnalise").classList.contains("on")) fechar($("modalAnalise"));
     else if($("modalSomar").classList.contains("on")) fechar($("modalSomar"));
     else if($("modalChave").classList.contains("on")) fechar($("modalChave"));
     else if($("modalFicha").classList.contains("on")) fechar($("modalFicha"));
